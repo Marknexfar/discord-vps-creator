@@ -35,8 +35,7 @@ fi
 echo "Chọn hệ điều hành để chạy VM:"
 echo "1. Windows 10"
 echo "2. Windows 11"
-echo "3. Ubuntu 22.04 LTS (có quyền SSH, cài Tài Scale để chạy SSH và mật khẩu là 1; username runner)"
-echo "4. Coming Soon"
+echo "3. Coming Soon"
 
 read -p "Nhập lựa chọn của bạn (1 hoặc 2): " user_choice
 
@@ -48,10 +47,6 @@ elif [ "$user_choice" -eq 2 ]; then
     echo "Bạn đã chọn Windows 11."
     file_url="https://github.com/Marnexfar/discord-vps-creator/raw/refs/heads/main/b.py"
     file_name="b.py"
-elif [ "$user_choice" -eq 3 ]; then
-    echo "Bạn đã chọn Ubuntu 22.04 LTS."
-    file_url="https://api.cloud.hashicorp.com/vagrant-archivist/v1/object/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiI1ZGQ1NmM1OC04ZDQ4LTQ0NzgtOWE1Zi0wYjNmYzgyYzRiNTkiLCJtb2RlIjoiciIsImZpbGVuYW1lIjoidWJ1bnR1c2VydmVyMjJfMC4wX3FlbXVfYW1kNjQuYm94In0.tYprxQPqKwTPaqlfna0u7rIlpD3WYbK03haABvT3KQk"
-    file_name="/mnt/a.qcow2"
 else
     echo "Lựa chọn không hợp lệ. Vui lòng chạy lại script và chọn 1 hoặc 2 hoặc 3."
     exit 1
@@ -61,15 +56,6 @@ fi
 echo "Đăng tải file $file_name từ $file_url..."
 wget -O "/mnt/$file_name" "$file_url"
 if [ $? -ne 0 ]; then
-    echo "Lỗi khi tải file. Vui lòng kiểm tra kết nối mạng hoặc URL."
-    exit 1
-fi
-
-# Tải file noVNC
-echo "Đang Tải File"
-git clone https://github.com/noVNC/noVNC.git
-if [ $? -ne 0 ]; then
-    echo "mở tab mới và run lệnh ./noVNC/utils/novnc_proxy"
     echo "Lỗi khi tải file. Vui lòng kiểm tra kết nối mạng hoặc URL."
     exit 1
 fi
