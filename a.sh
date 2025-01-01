@@ -35,7 +35,7 @@ fi
 echo "Chọn hệ điều hành để chạy VM:"
 echo "1. Windows 10"
 echo "2. Windows 11"
-echo "3. Ubuntu 22.04 LTS"
+echo "3. Ubuntu 22.04 LTS (có quyền SSH, cài Tài Scale để chạy SSH và mật khẩu là 1; username runner)"
 echo "4. Coming Soon"
 
 read -p "Nhập lựa chọn của bạn (1 hoặc 2): " user_choice
